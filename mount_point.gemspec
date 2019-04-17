@@ -37,5 +37,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rspec-mocks", "~> 3.4"
+  spec.add_development_dependency "rails", "~> 5.2.3"
   spec.add_development_dependency "byebug"
 end

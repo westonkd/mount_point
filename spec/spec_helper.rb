@@ -1,3 +1,4 @@
+require 'rails'
 require "bundler/setup"
 require "mount_point"
 
