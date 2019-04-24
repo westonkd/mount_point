@@ -4,30 +4,44 @@ An (extremely) simple gem for creating JS component mount points.
 
 MountPoint facilitates transferring data from a Rails controller to a JavaScript component by creating an intermediate DOM node that stores data in a `data-props` attribute.
 
-MountPoint creates uniform DOM nodes to mount JavaScript components, but it _does not_ mount the components. To mount components to MountPoint nodes use [MountPoint Node package]() (Coming soon).
+MountPoint creates uniform DOM nodes to mount JavaScript components, but it _does not_ mount the components. To mount components to MountPoint nodes use [mount-point Node package]() (Coming soon).
 
 ## Usage
 
 ### sample.html.erb:
+
 ```
+<%= javascript_pack_tag 'sample' %>
 <h1>Sample App</h1>
 
-<%= mount_point('my_component_name', props: {foor: 'bar'}) %>
+# Typically the "props" hash would be created as a controller instance variable
+<%= mount_point('my_component_name', props: {toWho: 'World'}) %>
 ```
 
-### Rendered result:
+MountPoint gem does not handle mounting the JavaScript component. To mount components to MountPoint nodes use [mount-point Node package]() (Coming soon):
+
+### javascript/components/HelloWorld.js:
+
 ```
-<html>
-...
-  <h1>Sample App</h1>
-  <div id='my_component_mount_point' data-props='{\"foo\":\"bar\"}'></div>
-...
-</html>
+import React from "react";
+
+const HelloWorld = props => {
+  return <h1>Hello {props.toWho}</h1>;
+};
+
+export default Hello;
 ```
 
-The JavaScript component can then me mounted to the node. The `data-props` attribute may be parsed as component props.
+### javascript/packs/sample.js
 
-MountPoint does not handle mounting the JavaScript component. To mount components to MountPoint nodes use [MountPoint Node package]() (Coming soon).
+```
+import mount from "mount-point";
+import HelloWorld from "../components/HelloWorld";
+
+document.addEventListener("DOMContentLoaded", () => {
+  mount(HelloWorld);
+});
+```
 
 ## Installation
 
@@ -44,6 +58,8 @@ And then execute:
 Or install it yourself as:
 
     $ gem install mount_point
+
+MountPoint gem does not handle mounting the JavaScript component. To mount components to MountPoint nodes install [mount-point Node package]() (Coming soon):
 
 ## Contributing
 
