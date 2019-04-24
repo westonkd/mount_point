@@ -4,7 +4,7 @@ An (extremely) simple gem for creating JS component mount points.
 
 MountPoint facilitates transferring data from a Rails controller to a JavaScript component by creating an intermediate DOM node that stores data in a `data-props` attribute.
 
-MountPoint creates uniform DOM nodes to mount JavaScript components, but it _does not_ mount the components. To mount components to MountPoint nodes use [mount-point Node package]() (Coming soon).
+MountPoint creates uniform DOM nodes to mount JavaScript components, but it _does not_ mount the components. To mount components to MountPoint nodes use [rails-mount-point Node package](https://www.npmjs.com/package/rails-mount-point).
 
 ## Usage
 
@@ -18,7 +18,7 @@ MountPoint creates uniform DOM nodes to mount JavaScript components, but it _doe
 <%= mount_point('my_component_name', props: {toWho: 'World'}) %>
 ```
 
-MountPoint gem does not handle mounting the JavaScript component. To mount components to MountPoint nodes use [mount-point Node package]() (Coming soon):
+MountPoint gem does not handle mounting the JavaScript component. To mount components to MountPoint nodes use [rails-mount-point Node package](https://www.npmjs.com/package/rails-mount-point):
 
 ### javascript/components/HelloWorld.js:
 
@@ -35,7 +35,7 @@ export default Hello;
 ### javascript/packs/sample.js
 
 ```
-import mount from "mount-point";
+import mount from "rails-mount-point";
 import HelloWorld from "../components/HelloWorld";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -59,7 +59,7 @@ Or install it yourself as:
 
     $ gem install mount_point
 
-MountPoint gem does not handle mounting the JavaScript component. To mount components to MountPoint nodes install [mount-point Node package]() (Coming soon):
+MountPoint gem does not handle mounting the JavaScript component. To mount components to MountPoint nodes install [rails-mount-point Node package](https://www.npmjs.com/package/rails-mount-point):
 
 ## Contributing
 
@@ -71,4 +71,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the MountPoint project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/mount_point/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the MountPoint project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/westonkd/mount_point/blob/master/CODE_OF_CONDUCT.md).
